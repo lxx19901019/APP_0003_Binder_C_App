@@ -88,6 +88,13 @@ int main(int argc, char **argv)
 {
     int fd,ret;
 
+    if(argc < 2) {
+		 fprintf(stderr,"Usage:\n");
+		 fprintf(stderr,"%s hello\n",argv[0]);
+		 fprintf(stderr,"%s hello <name>\n",argv[0]);
+		 return -1;
+	}
+
     g_bs = binder_open(128*1024);
     if (!g_bs) {
         fprintf(stderr, "failed to open binder driver\n");

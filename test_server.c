@@ -122,7 +122,7 @@ int main(int argc, char **argv)
         fprintf(stderr, "failed to svcmgr_publish hello\n");
         return -1;
     }
-   ret =svcmgr_publish(bs, svcmgr, "goodbye",(void *)123);
+   ret =svcmgr_publish(bs, svcmgr, "goodbye",(void *)124);
      if (!ret) {
         fprintf(stderr, "failed to svcmgr_publish goodbye\n");
        // return -1;
