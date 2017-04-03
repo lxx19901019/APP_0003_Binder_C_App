@@ -93,5 +93,5 @@ void bio_put_string16_x(struct binder_io *bio, const char *_str);
 uint32_t bio_get_uint32(struct binder_io *bio);
 uint16_t *bio_get_string16(struct binder_io *bio, size_t *sz);
 uint32_t bio_get_ref(struct binder_io *bio);
-
+void binder_set_maxthreads(struct binder_state *bs, int threads);
 #endif

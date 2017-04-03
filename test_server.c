@@ -155,11 +155,12 @@ int hello_service_handler(struct binder_state *bs,
                    struct binder_transaction_data *txn,
                    struct binder_io *msg,
                    struct binder_io *reply);
-	handle = (int (*)(struct binder_state *bs,
+                   
+	handler = (int (*)(struct binder_state *bs,
                    struct binder_transaction_data *txn,
                    struct binder_io *msg,
-                   struct binder_io *reply);)txn->target.ptr;
-	return handle(bs, txn, msg, reply);
+                   struct binder_io *reply))txn->target.ptr;
+	return handler(bs, txn, msg, reply);
  }
 int svcmgr_publish(struct binder_state *bs, uint32_t target, const char *name, void *ptr)
 {
@@ -216,7 +217,8 @@ int main(int argc, char **argv)
    		
    }
    #endif
-   
+  binder_set_maxthreads(bs, 10);
+  
 	binder_loop(bs, test_service_handler);
     return 0;
 }
