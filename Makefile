@@ -3,11 +3,11 @@ CFLAGS:=
 
 all : $(APPS)
 service_manager:service_manager.o binder.o
-	arm-linux-gcc -o $@ $^ -lpthread
+	arm-linux-gcc -o $@ $^ -lpthread 
 test_server:test_server.o binder.o
-	arm-linux-gcc -o $@ $^ -lpthread
+	arm-linux-gcc -o $@ $^ -lpthread -static
 test_client:test_client.o binder.o
-	arm-linux-gcc -o $@ $^ -lpthread
+	arm-linux-gcc -o $@ $^ -lpthread -static
 	
 	
 %.o : %.c
